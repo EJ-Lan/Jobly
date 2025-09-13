@@ -1,0 +1,87 @@
+/* Modern, professional color scheme */
+:root {
+  --primary: #1a2233;
+  --accent: #4f8cff;
+  --background: #f7f9fc;
+  --card-bg: #ffffff;
+  --card-border: #e3e8f0;
+  --text-main: #222b45;
+  --text-muted: #6b7a99;
+  --button-bg: #4f8cff;
+  --button-hover: #356ac3;
+  --button-text: #fff;
+}
+
+.section {
+  background: var(--background);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.title {
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 700;
+}
+.addButton {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.addButton:hover {
+  background: var(--button-hover);
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Card styles for JobCard */
+
+.card {
+  background: var(--card-bg);
+  border: 2px solid #1a2233;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(30, 40, 60, 0.08);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  color: var(--text-main);
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(30, 40, 60, 0.15);
+  border-color: var(--accent);
+}
+.cardTitle {
+  color: var(--primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.cardPosition {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.cardDetails {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+.cardStatus {
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  margin-left: 0.5rem;
+}
