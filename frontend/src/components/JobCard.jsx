@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import styles from "../app/applications/jobcard.module.css";
 
 export default function JobCard({ job, onDeleted, className }) {
   const [loading, setLoading] = useState(false);
@@ -34,41 +35,53 @@ export default function JobCard({ job, onDeleted, className }) {
   };
 
   return (
-    <div className={className ? className : "rounded-2xl border p-4 shadow-sm hover:shadow-md transition bg-white"}>
-      <table style={{width: '100%', borderCollapse: 'collapse', color: '#222b45'}}>
-        <thead>
-          <tr style={{background: '#f7f9fc'}}>
-            <th style={{textAlign: 'left', padding: '0.5rem', fontWeight: 600, borderBottom: '2px solid #e3e8f0'}}>Company</th>
-            <th style={{textAlign: 'left', padding: '0.5rem', fontWeight: 600, borderBottom: '2px solid #e3e8f0'}}>Position</th>
-            <th style={{textAlign: 'left', padding: '0.5rem', fontWeight: 600, borderBottom: '2px solid #e3e8f0'}}>Applied</th>
-            <th style={{textAlign: 'left', padding: '0.5rem', fontWeight: 600, borderBottom: '2px solid #e3e8f0'}}>Interview</th>
-            <th style={{textAlign: 'left', padding: '0.5rem', fontWeight: 600, borderBottom: '2px solid #e3e8f0'}}>Status</th>
-            <th style={{textAlign: 'left', padding: '0.5rem', fontWeight: 600, borderBottom: '2px solid #e3e8f0'}}>Details</th>
-            <th style={{textAlign: 'center', padding: '0.5rem', fontWeight: 600, borderBottom: '2px solid #e3e8f0'}}>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style={{background: '#fff'}}>
-            <td style={{padding: '0.5rem', borderBottom: '1px solid #e3e8f0'}}>{job.company}</td>
-            <td style={{padding: '0.5rem', borderBottom: '1px solid #e3e8f0', color: '#4f8cff', fontWeight: 500}}>{job.position}</td>
-            <td style={{padding: '0.5rem', borderBottom: '1px solid #e3e8f0'}}>{applied}</td>
-            <td style={{padding: '0.5rem', borderBottom: '1px solid #e3e8f0'}}>{interview || "—"}</td>
-            <td style={{padding: '0.5rem', borderBottom: '1px solid #e3e8f0'}}>
-              <span className={`cardStatus ${statusStyles[job.status]}`}>{job.status}</span>
-            </td>
-            <td style={{padding: '0.5rem', borderBottom: '1px solid #e3e8f0'}}>{job.details}</td>
-            <td style={{padding: '0.5rem', borderBottom: '1px solid #e3e8f0', textAlign: 'center'}}>
-              <button
-                onClick={deleteJob}
-                disabled={loading}
-                style={{background: '#e53e3e', color: '#fff', border: 'none', borderRadius: '6px', padding: '0.5rem 1.2rem', fontSize: '0.95rem', fontWeight: 500, cursor: 'pointer', opacity: loading ? 0.6 : 1}}
-              >
-                {loading ? "Deleting…" : "Delete"}
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className={className ? className : "rounded-2xl border p-4 shadow-sm hover:shadow-md transition bg-white"} style={{color: '#222b45'}}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'flex-start',
+          gap: '2vw',
+          flexWrap: 'nowrap',
+          width: '100%',
+          minWidth: 0,
+        }}
+      >
+        <div style={{flex: '2 1 180px', minWidth: 0}}>
+          <div style={{fontSize: '0.85rem', color: '#6b7a99', marginBottom: 2}}>Company</div>
+          <div style={{fontWeight: 700, fontSize: '1.15rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{job.company}</div>
+        </div>
+        <div style={{flex: '2 1 160px', minWidth: 0}}>
+          <div style={{fontSize: '0.85rem', color: '#6b7a99', marginBottom: 2}}>Position</div>
+          <div style={{color: '#4f8cff', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{job.position}</div>
+        </div>
+        <div style={{flex: '1 1 120px', minWidth: 0}}>
+          <div style={{fontSize: '0.85rem', color: '#6b7a99', marginBottom: 2}}>Applied</div>
+          <div style={{whiteSpace: 'nowrap'}}>{applied}</div>
+        </div>
+        <div style={{flex: '1 1 120px', minWidth: 0}}>
+          <div style={{fontSize: '0.85rem', color: '#6b7a99', marginBottom: 2}}>Interview</div>
+          <div style={{whiteSpace: 'nowrap'}}>{interview || "—"}</div>
+        </div>
+        <div style={{flex: '1 1 100px', minWidth: 0}}>
+          <div style={{fontSize: '0.85rem', color: '#6b7a99', marginBottom: 2}}>Status</div>
+          <span className={`cardStatus ${statusStyles[job.status]}`}>{job.status}</span>
+        </div>
+        <div style={{flex: '2 1 200px', minWidth: 0}}>
+          <div style={{fontSize: '0.85rem', color: '#6b7a99', marginBottom: 2}}>Details</div>
+          <div style={{color: '#6b7a99', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>{job.details}</div>
+        </div>
+        <div style={{flex: '0 0 90px', textAlign: 'center', minWidth: 0}}>
+          <div style={{fontSize: '0.85rem', color: '#6b7a99', marginBottom: 2}}>&nbsp;</div>
+          <button
+            onClick={deleteJob}
+            disabled={loading}
+            style={{background: '#e53e3e', color: '#fff', border: 'none', borderRadius: '6px', padding: '0.5rem 1.2rem', fontSize: '0.95rem', fontWeight: 500, cursor: 'pointer', opacity: loading ? 0.6 : 1}}
+          >
+            {loading ? "Deleting…" : "Delete"}
+          </button>
+        </div>
+      </div>
       {error && <p style={{marginTop: '0.5rem', color: '#e53e3e', fontSize: '0.95rem'}}>{error}</p>}
     </div>
   );
