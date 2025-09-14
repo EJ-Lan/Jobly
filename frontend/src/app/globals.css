@@ -1,4 +1,44 @@
+<<<<<<< HEAD
 /* Reset some defaults */
+=======
+/* Custom CSS variables */
+:root {
+  --background: #f0f4f8;       /* light gray-blue background */
+  --foreground: #1f2937;       /* dark gray text */
+  --card-background: #ffffff;  /* white card background */
+  --primary-color: #3b82f6;    /* modern blue for buttons and highlights */
+  --secondary-color: #10b981;  /* green accent for success states */
+  --border-color: #e5e7eb;     /* light border color */
+  --input-background: #f9fafb; /* input field background */
+  --input-border: #d1d5db;     /* input field border */
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;      /* dark navy background */
+    --foreground: #f8fafc;      /* light text */
+    --card-background: #1e293b; /* dark card background */
+    --primary-color: #3b82f6;   /* same accent blue */
+    --secondary-color: #22c55e; /* green accent */
+    --border-color: #334155;    /* dark border */
+    --input-background: #1e293b; /* dark input background */
+    --input-border: #475569;     /* dark input border */
+  }
+}
+
+/* Page defaults */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+>>>>>>> 669561161dfdbeb485b782775699ddc5560cf5a7
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +54,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+<<<<<<< HEAD
 
 /* Container box */
 .form-container {
@@ -67,3 +108,5 @@ body {
 .form-container button:hover {
   background: #4338ca;
 }
+=======
+>>>>>>> 669561161dfdbeb485b782775699ddc5560cf5a7
