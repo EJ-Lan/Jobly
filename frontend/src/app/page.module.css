@@ -89,11 +89,7 @@
 .loginBtn:hover {
   transform: scale(1.05);
   background: #0040a0;
-  border-bottom-width: 12px;
-  justify-content: space-between;
 }
-
-
 
 /* Register link */
 .registerLink {

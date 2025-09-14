@@ -1,3 +1,6 @@
+"use client"; // needed to use client-side navigation
+
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function LoginPage() {
@@ -29,10 +32,12 @@ export default function LoginPage() {
           </button>
         </form>
 
-
         <div className={styles.registerLink}>
           <span>Don't have an account?</span>
-          <button className={styles.registerBtn}>Register</button>
+          {/* Link to register page */}
+          <Link href="/register">
+            <button className={styles.registerBtn}>Register</button>
+          </Link>
         </div>
       </div>
     </div>
